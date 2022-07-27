@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv = "X-UA-Compatible" content = "ie=edge">
+        
+        <link rel="stylesheet" href="{% static 'polls/baseStyle.css' %}">
+
+        <link href="{% static '/img/smalllogo.png' %}" rel="icon">
+        <title>
+
+            ITP - 
+            {% block title_block %}
+
+            {% endblock %}
+        </title>
+        
+        <link rel="stylesheet" href="{% static 'polls/baseStyle.css' %}">
+        <link href="{% static 'img/logo4.jpg' %}" rel="icon">
+    </head>
+    <body>
+        <div>
+            <ul>
+                <li class="logo"><img src="{% static "img/logo.png" %}" alt="logo" /> </li>
+                <li><a href="{% url 'itp:index' %}">Index</a></li>
+                <li style="float:right"><a href="{% url 'itp:about' %}">About</a ></li>
+            </ul>
+        </div>
+
+            {% block body_block %}
+            {% endblock %}
+        
+
+        <div>
+            {% block side_block %}
+            {% endblock %}
+        </div>
+
+        <hr />
+        <footer class="footer-page">
+            <b>Xinyao Shu IT+ PROJECT</b> 
+        </footer>
+    </body>
+    
+</html>
+
+

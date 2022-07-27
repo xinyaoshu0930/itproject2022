@@ -1,0 +1,23 @@
+{% extends 'itp/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+	About Essence
+{% endblock %}
+
+{% block body_block %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/about.css'%}">
+</head>
+
+
+		<div class="text">
+			<center><h1>About</h1></center>
+			Here is the about page.<br />
+			<strong>Welcome.</strong><br />
+		</div>
+		<div class="pic">	
+			<img src="{% static "img/logo.jpg" %}" alt="logo" /> 
+		</div>
+{% endblock %}
