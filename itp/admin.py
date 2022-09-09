@@ -1,3 +1,11 @@
+from multiprocessing import Event
 from django.contrib import admin
+from django.db import models
+from django.contrib.auth.models import User
+from itp.models import Conference, Publication, UserProfile, Event
 
-# Register your models here.
+
+admin.site.register(Publication)
+admin.site.register(UserProfile)
+admin.site.register(Event)
+admin.site.register(Conference)

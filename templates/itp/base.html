@@ -28,6 +28,17 @@
             <ul>
                 <li class="logo"><img src="{% static "img/logo.png" %}" alt="logo" /> </li>
                 <li><a href="{% url 'itp:index' %}">Index</a></li>
+                {% if user.is_authenticated %}
+                <li style="float:right"><a href="{% url 'itp:logout' %}">Logout</a></li>
+                <li style="float:right"><a href="{% url 'itp:add_publication' %}">Add A Publication</a></li>
+                <li style="float:right"><a href="{% url 'itp:add_event' %}">Add An Event</a></li>
+                <li style="float:right"><a href="{% url 'itp:my_archives' %}">My Archives</a></li>
+                 {% else %}
+                <li style="float:right"><a href="{% url 'itp:sign_up' %}">Sign Up</a></li>
+                <li style="float:right"><a href="{% url 'itp:login' %}">Login</a></li>           
+                {% endif %}
+                <li style="float:right"><a href="{% url 'itp:publications' %}">Publication</a></li>
+                <li style="float:right"><a href="{% url 'itp:events' %}">Event</a></li>
                 <li style="float:right"><a href="{% url 'itp:about' %}">About</a ></li>
             </ul>
         </div>
@@ -45,6 +56,7 @@
         <footer class="footer-page">
             <b>Xinyao Shu IT+ PROJECT</b> 
         </footer>
+
     </body>
     
 </html>
