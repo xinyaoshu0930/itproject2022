@@ -15,5 +15,6 @@ urlpatterns = [
     path('add_event/', views.add_event, name='add_event'),
     path('add_publication/add_conference/', views.add_conference, name='add_conference'),
     path('add_publication/add_tag/', views.add_tag, name='add_tag'),
+    path('add_publication/add_author/', views.sign_up, name='add_author'),
     path('my_archives.html', views.my_archives, name='my_archives')
 ]

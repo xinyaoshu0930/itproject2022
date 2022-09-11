@@ -1,0 +1,23 @@
+{% extends 'itp/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+	Add a Tag
+{% endblock %}
+
+{% block body_block %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/add_tag.css'%}">
+</head>
+
+<h1>Add a Tag</h1>
+<div>
+    <form id="tag_form" method="post" action="{% url 'itp:add_tag' %}">
+        {% csrf_token %}
+        {{ tag_form.as_p }}
+        <input type="submit" name="submit" value="Add a Tag" />
+    </form>
+</div>
+
+{% endblock %}

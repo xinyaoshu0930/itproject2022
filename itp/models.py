@@ -48,12 +48,12 @@ class Publication(models.Model):
     ]
 
     title = models.CharField(max_length=300, blank = True, unique=True)
-    author = models.ManyToManyField(User, help_text='Use cmd to select multiple authors')
+    author = models.ManyToManyField(User, help_text=mark_safe("<button><a href='add_author/'>Add An Author</a></button>Use cmd to select multiple authors"))
     type = models.CharField(max_length=300, blank = True, choices=PTYPES)
-    year = models.IntegerField()
+    year = models.PositiveIntegerField()
     magazine = models.CharField(max_length=300, blank = True)
     page = models.CharField(max_length=300, blank = True)
-    doi = models.CharField(max_length=300, blank = True)
+    doi = models.CharField(max_length=300, blank = True, null=True)
     conferenceid = models.ForeignKey(Conference, on_delete=models.CASCADE, blank = True, null=True, help_text=mark_safe("<button><a href='add_conference/'>Add A Conference</a></button>"))
     tag = models.ManyToManyField(Tag, blank=True, help_text=mark_safe("<button><a href='add_tag/'>Add A Tag</a></button>"))
 

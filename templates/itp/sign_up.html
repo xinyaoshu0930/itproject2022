@@ -1,0 +1,34 @@
+{% extends 'itp/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    Sign up
+{% endblock %}
+
+{% block body_block %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/sign_up.css'%}">
+</head>
+
+{% if registered %}
+    <strong>Welcome to Movieworld!</strong>
+    
+    <a href="{% url 'itp:index' %}">Return to the homepage.</a><br />
+
+{% else %}
+    <div class='form'>
+    <h1 class='title'>Sign up</h1>
+    <form id="user_form" method="post" action="{% url 'itp:sign_up' %}" enctype="multipart/form-data"  >
+
+    {% csrf_token %}
+
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
+  
+    <input type="submit" name="submit"  id='submit_sign' class='submit' value="Register" />
+
+    </form>
+</div>
+{% endif %}
+
+{% endblock %}

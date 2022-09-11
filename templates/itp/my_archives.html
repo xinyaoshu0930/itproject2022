@@ -1,0 +1,30 @@
+{% extends 'itp/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+	My Archives
+{% endblock %}
+
+{% block body_block %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/my_archives.css'%}">
+
+    <div class="header">
+	    <h2><strong>My Archives</strong></h2> 
+    </div>
+
+
+    <div id="body"> 
+        {% for p in publications %}
+        {% for a in p.author.all %}
+            {{ a.first_name }} {{ a.last_name }},
+        {% endfor %}
+             {{ p.title }}, {{ p.year }}, {{ p.magazine }}, {{ p.page }},{{ p.doi }} 
+</br>
+        
+        {% endfor %}
+
+
+
+  </div>	
+
+{% endblock %}

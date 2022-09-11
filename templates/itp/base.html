@@ -1,64 +1,88 @@
-<!DOCTYPE html>
+<!doctype html>
 {% load staticfiles %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
+    <title>Base</title>
 
-<html>
-    <head>
+    <link href="{% static 'polls/baseStyle.css' %}" rel="stylesheet">
+  </head>
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta http-equiv = "X-UA-Compatible" content = "ie=edge">
-        
-        <link rel="stylesheet" href="{% static 'polls/baseStyle.css' %}">
+  <body>
 
-        <link href="{% static '/img/smalllogo.png' %}" rel="icon">
-        <title>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'itp:index' %}">Essence</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'itp:index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'itp:publications' %}">Publications</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'itp:events' %}">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'itp:about' %}">About</a>
+                </li>
 
-            ITP - 
-            {% block title_block %}
-
-            {% endblock %}
-        </title>
-        
-        <link rel="stylesheet" href="{% static 'polls/baseStyle.css' %}">
-        <link href="{% static 'img/logo4.jpg' %}" rel="icon">
-    </head>
-    <body>
-        <div>
-            <ul>
-                <li class="logo"><img src="{% static "img/logo.png" %}" alt="logo" /> </li>
-                <li><a href="{% url 'itp:index' %}">Index</a></li>
-                {% if user.is_authenticated %}
-                <li style="float:right"><a href="{% url 'itp:logout' %}">Logout</a></li>
-                <li style="float:right"><a href="{% url 'itp:add_publication' %}">Add A Publication</a></li>
-                <li style="float:right"><a href="{% url 'itp:add_event' %}">Add An Event</a></li>
-                <li style="float:right"><a href="{% url 'itp:my_archives' %}">My Archives</a></li>
-                 {% else %}
-                <li style="float:right"><a href="{% url 'itp:sign_up' %}">Sign Up</a></li>
-                <li style="float:right"><a href="{% url 'itp:login' %}">Login</a></li>           
-                {% endif %}
-                <li style="float:right"><a href="{% url 'itp:publications' %}">Publication</a></li>
-                <li style="float:right"><a href="{% url 'itp:events' %}">Event</a></li>
-                <li style="float:right"><a href="{% url 'itp:about' %}">About</a ></li>
+            {% if user.is_authenticated %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Add New</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="{% url 'itp:add_publication' %}">Add A Publication</a>
+                  <a class="dropdown-item" href="{% url 'itp:add_event' %}">Add An Event</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{% url 'itp:my_archives' %}">My Archives</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'itp:logout' %}">Logout</a>
+             </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'itp:sign_up' %}">Sign Up</a>
+             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'itp:login' %}">Login</a>
+            </li>
+            {% endif %}
             </ul>
-        </div>
 
+            <form class="d-flex">
+              <input class="form-control me-sm-2" type="text" placeholder="Search">
+              <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+    <main role="main" class="container">
+
+        <div>
             {% block body_block %}
             {% endblock %}
-        
-
+        </div>
+            
         <div>
             {% block side_block %}
             {% endblock %}
         </div>
 
-        <hr />
-        <footer class="footer-page">
-            <b>Xinyao Shu IT+ PROJECT</b> 
-        </footer>
+    </main><!-- /.container -->
 
-    </body>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
     
+  </body>
 </html>
-
-
