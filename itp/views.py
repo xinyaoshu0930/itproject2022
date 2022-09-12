@@ -1,14 +1,16 @@
+from ast import keyword
 from contextlib import nullcontext
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.urls import reverse
-from itp.models import Publication, UserProfile, Event, Conference
+from itp.models import Publication, Tag, UserProfile, Event, Conference
 from itp.forms import ConferenceForm, EventForm, PublicationForm, TagForm, UserForm, UserProfileForm
 from django.template import loader
 from django.utils.text import slugify
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
 
 
@@ -97,7 +99,7 @@ def add_publication(request):
 			publication_form.save(commit=False)
 			publication_form.save()
 			publication_form.save_m2m()
-			return redirect(reverse('itp:index'))
+			return redirect(reverse('itp:publications'))
 
 		else:
 			print(publication_form.errors)
@@ -108,11 +110,15 @@ def add_publication(request):
 	return render(request, 'itp/add_publication.html', context=context_dict)
 
 
-def all_publications(request):
-	publications = Publication.objects.all()	
-
+def all_publications1(request):
 	context_dict={}
-	context_dict['publications']=publications
+
+	try:
+		publications = Publication.objects.all()
+		context_dict['publications']=publications
+	except Publication.DoesNotExist:
+		context_dict['publications']=None
+
 	return render(request, 'itp/publications.html', context=context_dict)
 
 
@@ -123,7 +129,7 @@ def add_event(request):
 		if event_form.is_valid():
 			event_form.save(commit=True)
 
-			return redirect(reverse('itp:index'))
+			return redirect(reverse('itp:events'))
 
 		else:
 			print(event_form.errors)
@@ -134,10 +140,13 @@ def add_event(request):
 
 
 def all_events(request):
-	events = Event.objects.all()	
+	context_dict = {}
+	try:
+		events = Event.objects.all()	
+		context_dict['events']=events
+	except Event.DoesNotExist:
+		context_dict['events'] = None
 
-	context_dict={}
-	context_dict['events']=events
 	return render(request, 'itp/events.html', context=context_dict)
 
 
@@ -183,3 +192,53 @@ def my_archives(request):
     context_dict['publications'] = publications
 
     return render(request, 'itp/my_archives.html', context=context_dict)
+
+def is_valid_q(param):
+	return param != '' and param is not None
+
+def all_publications(request):
+	context_dict={}
+
+	qs = Publication.objects.all()
+	title_query = request.GET.get('title')
+	author_query = request.GET.get('author')
+	year_min_query = request.GET.get('year_min')
+	year_max_query = request.GET.get('year_max')
+	magazine_query = request.GET.get('magazine')
+	conference_query = request.GET.get('conference')
+	doi_query = request.GET.get('doi')
+	type_query = request.GET.get('type')
+	keyword_query = request.GET.get('keyword')
+
+
+	if is_valid_q(title_query):
+		qs = qs.filter(title__icontains=title_query)
+
+	if is_valid_q(author_query):
+		qs = qs.filter(Q(author__first_name__icontains=author_query) | Q(author__last_name__icontains=author_query))
+
+	if is_valid_q(year_min_query):
+		qs = qs.filter(year__gte=year_min_query)
+
+	if is_valid_q(year_max_query):
+		qs = qs.filter(year__lt=year_max_query)
+
+	if is_valid_q(magazine_query):
+		qs = qs.filter(magazine__icontains=magazine_query)
+	
+	if is_valid_q(conference_query):
+		qs = qs.filter(conferenceid__name__icontains=conference_query)
+
+	if is_valid_q(doi_query):
+		qs = qs.filter(doi__icontains=doi_query)
+
+	if is_valid_q(type_query) and type_query != 'Choose...':
+		qs = qs.filter(type=type_query)
+
+	if is_valid_q(keyword_query):
+		qs = qs.filter(tag__name__icontains=keyword_query)
+
+
+	context_dict['publications']=qs
+
+	return render(request, 'itp/publications.html', context=context_dict)

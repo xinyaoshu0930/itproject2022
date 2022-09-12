@@ -1,20 +1,100 @@
 {% extends 'itp/base.html' %}
 {% load staticfiles %}
 
+
+
 {% block title_block %}
 	Publications
 {% endblock %}
 
+
 {% block body_block %}
-<link rel="stylesheet" type="text/css" href="{% static 'polls/publications.css'%}">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/publications.css'%}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
 
     <div class="header">
-	    <h2><strong>All Publications</strong></h2> 
+	    <h2><strong>Publications</strong></h2> 
     </div>
 
+    <form method="GET" action=".">
+        
+        <div class="row">
+            <div class="col-12">
+                <label for="title">Title</label>
+                <div class="input-group">
+                    <input class="form-control py-2 border-right-0 border" type="search" name="title" placeholder="Title" />
+                    <span class="input-group-text">
+                        <div class="input-group-text bg-transparent">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </span>
+                </div>
+            </div>        
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <label for="author">Author</label>
+                <div class="input-group">
+                    <input class="form-control py-2 border-right-0 border" type="search" name="author" placeholder="Author" />
+                    <span class="input-group-text">
+                        <div class="input-group-text bg-transparent">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </span>
+                </div>
+            </div>        
+        </div>
 
+            <div class="row">
+              <div class="col-md-6">
+                <label for="yearMin">Publish Year Minimum</label>
+              <input type="number" min=1900 class="form-control" id="yearMin" placeholder="1990" name="year_min">
+              </div>
+              <div class="col-md-6">
+                <label for="yearMax">Publish Year Maximum</label>
+              <input type="number" min=1900 class="form-control" id="yearMax" placeholder="2022" name="year_max">
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                  <label for="magazine">Magazine</label>
+                <input type="text" class="form-control" id="magazine" placeholder="Magazine" name="magazine">
+                </div>
+                <div class="col-md-6">
+                  <label for="conference">Conference</label>
+                  <input type="text" class="form-control" id="conference" placeholder="Conference" name="conference">
+                </div>
+              </div>
+            
+            <div class="row">
+              <div class="col-md-4">
+                <label for="doi">DOI</label>
+                <input type="text" class="form-control" id="doi" placeholder="DOI" name="doi">
+              </div>
+              <div class="col-md-4">
+                <label for="type">Type</label>
+                <select id="type" class="form-control" name="type">
+                    <option selected>Choose...</option>
+                    <option value="Journal">Journal</option>
+                    <option value="Conference">Conference</option>
+                    <option value="Technical Reports">Technical Reports</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="keyword">Keyword</label>
+                <input type="text" class="form-control" id="keyword" placeholder="Keyword" name="keyword">
+             </div>
+            </div><br>
+            <button type="submit" class="btn btn-primary">Search</button>
+          </form>
+    
+
+          <br>
     <div id="body"> 
-        <ul  style=“background-color:rgb(253,208,208)”>
             {% for p in publications %}
             <li>{% for a in p.author.all %}
                     {{ a.first_name }} {{ a.last_name }},
@@ -26,7 +106,7 @@
                  {% endif %}
                 
                 {% if p.page %}
-                    , {{ p.page }}
+                    , pp.{{ p.page }}
                 {% endif %}
 
                 {% if p.doi %}
@@ -37,14 +117,14 @@
                      , {{ p.conferenceid.name }}  {{ p.conferenceid.time }},  {{ p.conferenceid.location }} 
                 {% endif %}
         </br>
-                keyword: {% for a in p.tag.all %}
-                {{ a.name }}  
+                Keywords: {% for a in p.tag.all %}
+                {{ a.name }};   
                 {% endfor %}
         </br></li>
             {% endfor %}
 
             
-        </ul>
+        
        
         
   </div>	
