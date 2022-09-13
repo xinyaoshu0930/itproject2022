@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'itp',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = 'home/itp/itp2022/static'
 
 LOGIN_URL = '/itp2022/login/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

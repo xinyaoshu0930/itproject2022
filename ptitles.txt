@@ -1,0 +1,100 @@
+Smoking and obesity are associated with increased readmission after elective repair of small primary ventral hernias: A nationwide database study
+Changes in Physical Activity and Sedentary Patterns on Cardiometabolic Outcomes in the Transition to Adolescence: International Children's Accelerometry Database 2.0
+Long-term positive airway pressure therapy is associated with reduced total cholesterol levels in patients with obstructive sleep apnea: data from the European Sleep Apnea Database (ESADA)
+Management and prognostic factors of epithelioid trophoblastic tumors: Results from the International Society for the Study of Trophoblastic Diseases database
+Development and implementation of a high-quality clinical database: the Australian and New Zealand Intensive Care Society Adult Patient Database
+United Kingdom National Ophthalmology Database Study of Cataract Surgery: Report 3: Pseudophakic Retinal Detachment
+Positron Emission Tomography in Thymic Tumors: Analysis Using a Prospective Research Database
+The Impact of Thymoma Histotype on Prognosis in a Worldwide Database
+GW29-e1865 Evidence-based proposal for the number of ambulatory readings required for assessing blood pressure level in research settings: An analysis of the IDACO database
+Re: Fabio Conforti, Laura Pala, Vincenzo Bagnardi, et al. Cancer Immunotherapy Efficacy and Patients’ Sex: A Systematic Review and Meta-analysis. Lancet Oncol 2018;19:737–46: Outcomes of Metastatic Renal Cell Carcinoma by Gender: Contrasting Results from the International mRCC Database Consortium
+A decade of change—risk profiles and outcomes for isolated coronary artery bypass grafting procedures, 1990–1999: a report from the STS National Database Committee and the Duke Clinical Research Institute
+Outcomes After Radical Prostatectomy Among Men Who Are Candidates for Active Surveillance: Results From the SEARCH Database
+Relation of High Serum Bilirubin to Short-Term Mortality Following a Myocardial Infarction Complicated by Left Ventricular Systolic Dysfunction (from the High-Risk Myocardial Infarction Database Initiative)
+The international global H-mode confinement database: storage and distribution
+Heart rate prediction of outcome in heart failure following myocardial infarction depend on heart rhythm status an analysis from the high-risk myocardial infarction database initiative
+Comparison of different variant sequence types coupled with decoy generation methods used in concatenated target-decoy database searches for proteogenomic research
+A study of brain protection during total arch replacement comparing antegrade cerebral perfusion versus hypothermic circulatory arrest, with or without retrograde cerebral perfusion: Analysis based on the Japan Adult Cardiovascular Surgery Database
+Congenital heart surgery nomenclature and database project: update and proposed data harvest
+Relationship between Hb and HbA1c in Japanese adults: An analysis of the 2009 Japan Society of Ningen Dock database
+Lifestyle and glycemic control in Japanese adults receiving diabetes treatment: An analysis of the 2009 Japan Society of Ningen Dock database
+2.02: Food Constituent and Food Metabolite Databases
+Underutilised crops database for supporting agricultural diversification
+Risk Stratification of Men with Gleason Score 7 to 10 Tumors by Primary and Secondary Gleason Score: Results from the SEARCH Database
+Predicting Unilateral Prostate Cancer Based on Biopsy Features: Implications for Focal Ablative Therapy—Results From the SEARCH Database
+Different cognitive profiles between Parkinson's and Alzheimer'/INS;s diseases screened by Montreal cognitive assessment. A multicenter study of Keio PD database
+Spatial Databases
+Multi-value private information retrieval with colluding databases via trace functions
+Age-specific vaccination coverage estimates for influenza, human papillomavirus and measles containing vaccines from seven population-based healthcare databases from four EU countries – The ADVANCE project
+Cross-database evaluation of EEG based epileptic seizures detection driven by adaptive median feature baseline correction
+ParaSiteDB – A user-friendly database for managing a parasitological collection
+InvasionDB: A genome and gene database of invasive alien species
+The occurrence of Simpson's paradox if site-level effect was ignored in the TREAT Asia HIV Observational Database
+Query batching optimization in database systems
+Evaluation of Early Complications Related to De Novo Cardioverter Defibrillator Implantation: Insights From the Ontario ICD Database
+Quantifying outcome misclassification in multi-database studies: The case study of pertussis in the ADVANCE project
+The Society of Thoracic Surgeons Adult Cardiac Surgery Database: 2020 Update on Outcomes and Research
+A Model for Computing Skyline Data Items in Cloud Incomplete Databases
+ADVANCE database characterisation and fit for purpose assessment for multi-country studies on the coverage, benefits and risks of pertussis vaccinations
+Mentorship Through Research: A Novel Approach to Increasing Resident and Medical Student Research Competency Through an Institutional Database
+Proactive chat in research databases: Inviting new and different questions
+Assessment methodologies and statistical issues for computer-aided diagnosis of lung nodules in computed tomography: contemporary research topics relevant to the lung image database consortium11,2
+Database intrusion detection using role and user behavior based risk assessment
+An integrated database of stream macroinvertebrate traits for Australia: concept and application
+Development of JT-60SA experiment database system
+Efficient verifiable databases with additional insertion and deletion operations in cloud computing
+A practical photogrammetric workflow in the field for the construction of a 3D rock joint surface database
+An Investigation on Database Connections in OPC UA Applications
+The influence of the solar radiation database and the photovoltaic simulator on the sizing and economics of photovoltaic-diesel generators
+Disbiome: A Database Describing Microbiome Alterations in Different Disease States
+LABiocin database: A new database designed specifically for Lactic Acid Bacteria bacteriocins
+Proactive, uncertainty-driven queries management at the edge
+Intelligent tasks allocation at the edge based on machine learning and bio-inspired algorithms
+TSMF: Network Latency Estimation Using Matrix Factorization and Time Series Forecasting
+Data quality-aware task offloading in mobile edge computing: an optimal stopping theory approach
+Adaptive Novelty Detection over Contextual Data Streams at the Edge using One-class Classification
+Landmark based Outliers Detection in Pervasive Applications
+On the use of intelligent models towards meeting the challenges of the edge mesh
+Optimized Contextual Data Offloading in Mobile Edge Computing
+Towards QoS-aware Provisioning of Chained Virtual Security Services in Edge Networks
+Dynamic Scheduling and Optimal Reconfiguration of UPF Placement in 5G Networks
+A deep learning model for demand-driven, proactive tasks management in pervasive computing
+In-Network Placement of Security VNFs in Multi-Tenant Data Centers
+Predictive intelligence of reliable analytics in distributed computing environments
+An intelligent edge-centric queries allocation scheme based on ensemble models
+Proactive & time-optimized data synopsis management at the edge
+Large-scale data exploration using explanatory regression functions
+Edge-centric inferential modeling & analytics
+To transmit or not to transmit: controlling the communications in the mobile IoT domain
+Adaptive learning of aggregate analytics under dynamic workloads
+SuRF: Identification of Interesting Data Regions with Surrogate Models
+A probabilistic model for assigning queries at the edge
+On the Optimality of Task Offloading in Mobile Edge Computing Environments
+Aggregate Query Prediction under Dynamic Workloads
+Large-scale predictive modeling and analytics through regression queries in data management systems
+Energy Usage Profiling for Virtualized Single Board Computer Clusters
+Knowledge-centric Analytics Queries Allocation in Edge Computing Environments
+Edge-centric queries stream management based on an ensemble model
+IoT-enabled tip and swap waste management models for smart cities
+An Ensemble Interpretable Machine Learning Scheme for Securing Data Quality at the Edge
+An intelligent, time-optimized monitoring scheme for edge nodes
+Optimized Analytics Query Allocation at the Edge of the Network
+Delay-tolerant sequential decision making for task offloading in mobile edge computing environments
+Machine Learning Model Updates in Edge Computing: An Optimal Stopping Theory Approach
+Adaptive epidemic dissemination as a finite-horizon optimal stopping problem
+Time-Optimized Task Offloading Decision Making in Mobile Edge Computing
+In-network Predictive Analytics in Edge Computing
+Multi-criteria optimal task allocation at the edge
+Revisiting Exact kNN Query Processing with Probabilistic Data Space Transformations
+Explaining Aggregates for Exploratory Analytics
+Adaptive principal component analysis-based outliers detection through neighbourhood voting in wireless sensor networks
+A Spatio-Temporal Data Imputation Model for Supporting Analytics at the Edge
+Communication-aware edge-centric knowledge dissemination in edge computing environments
+Time-Optimized Contextual Information Flow on Unmanned Vehicles
+In-Network Decision Making Intelligence for Task Allocation in Edge Computing
+An Edge-Centric Ensemble Scheme for Queries Assignment
+Dynamic, Latency-Optimal vNF Placement at the Network Edge
+Edge-Centric Efficient Regression Analytics
+Scalable aggregation predictive analytics: a query-driven machine learning approach
+On the Optimality of Virtualized Security Function Placement in Multi-Tenant Data Centers
+Predictive intelligence to the edge: impact on edge analytics

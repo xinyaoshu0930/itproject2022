@@ -1,5 +1,6 @@
 <!doctype html>
 {% load staticfiles %}
+{% load crispy_forms_tags %} 
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -17,7 +18,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'itp:index' %}">Essence</a>
+          <a class="navbar-brand" href="{% url 'itp:index' %}"><img src="{% static "img/logo.png" %}" width="30" height="30" alt="logo">Essence</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -42,34 +43,40 @@
                 <div class="dropdown-menu">
                   <a class="dropdown-item" href="{% url 'itp:add_publication' %}">Add A Publication</a>
                   <a class="dropdown-item" href="{% url 'itp:add_event' %}">Add An Event</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="{% url 'itp:my_archives' %}">My Archives</a>
                 </div>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'itp:logout' %}">Logout</a>
-             </li>
-            {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'itp:sign_up' %}">Sign Up</a>
-             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'itp:login' %}">Login</a>
-            </li>
             {% endif %}
             </ul>
 
-            <form class="d-flex">
-              <input class="form-control me-sm-2" type="text" placeholder="Search">
-              <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <ul class="navbar-nav ms-auto">
+              {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><img src="{% static "img/avatar.jpg" %}" width="30" height="30" class="rounded-circle"></a>
+              <div class="dropdown-menu dropdown-menu-end">
+                <a class="dropdown-item" href="{% url 'itp:my_archives' %}">My Archives</a>
+              </div>
+            </li>
+           
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'itp:logout' %}">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'itp:sign_up' %}">Sign Up</a>
+          </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'itp:login' %}">Login</a>
+          </li>
+          {% endif %}
+          </ul>
+         
           </div>
         </div>
       </nav>
 
     <main role="main" class="container">
 
-        <div style="margin-top: 50px;">
+        <div style="margin-top: 50px; margin-bottom: 50px;">
             {% block body_block %}
             {% endblock %}
         </div>

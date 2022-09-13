@@ -1,5 +1,6 @@
 {% extends 'itp/base.html' %}
 {% load staticfiles %}
+{% load crispy_forms_tags %} 
 
 {% block title_block %}
     Sign up
@@ -22,11 +23,11 @@
 
     {% csrf_token %}
 
-    {{ user_form.as_p }}
-    {{ profile_form.as_p }}
+    {{ user_form|crispy }}
+    {{ profile_form|crispy }}
   
-    <input type="submit" name="submit"  id='submit_sign' class='submit' value="Register" />
-
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
 {% endif %}

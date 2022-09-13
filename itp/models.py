@@ -27,8 +27,8 @@ class UserProfile(models.Model):
         return self.user.username
 
 class Conference(models.Model):
-    name = models.CharField(max_length=300, blank = True, unique=True)
-    time = models.DateField()
+    name = models.CharField(max_length=300, blank = False, unique=True)
+    time = models.DateField(help_text="YYYY-MM-DD")
     location = models.CharField(max_length=300, blank = True)
 
     def __str__(self):
@@ -47,15 +47,15 @@ class Publication(models.Model):
         ('Technical Reports', 'Technical Reports'),
     ]
 
-    title = models.CharField(max_length=300, blank = True, unique=True)
-    author = models.ManyToManyField(User, help_text=mark_safe("<button><a href='add_author/'>Add An Author</a></button>Use cmd to select multiple authors"))
+    title = models.CharField(max_length=300, blank = False, unique=True)
+    author = models.ManyToManyField(User, blank = False, help_text=mark_safe("<button><a href='add_author/'>New Author</a></button> Use cmd or shift to select multiple authors"))
     type = models.CharField(max_length=300, blank = True, choices=PTYPES)
     year = models.PositiveIntegerField()
     magazine = models.CharField(max_length=300, blank = True)
     page = models.CharField(max_length=300, blank = True)
     doi = models.CharField(max_length=300, blank = True, null=True)
-    conferenceid = models.ForeignKey(Conference, on_delete=models.CASCADE, blank = True, null=True, help_text=mark_safe("<button><a href='add_conference/'>Add A Conference</a></button>"))
-    tag = models.ManyToManyField(Tag, blank=True, help_text=mark_safe("<button><a href='add_tag/'>Add A Tag</a></button>"))
+    conferenceid = models.ForeignKey(Conference, on_delete=models.CASCADE, blank = True, null=True, help_text=mark_safe("<button><a href='add_conference/'>New Conference</a></button>"))
+    tag = models.ManyToManyField(Tag, blank=True, help_text=mark_safe("<button><a href='add_tag/'>New Tag</a></button> Use cmd or shift to select multiple tags"))
 
     def all_authorself(self):
         return ",".join([str(p) for p in self.user.all()])
@@ -76,8 +76,8 @@ class Publication(models.Model):
 
 
 class Event(models.Model):
-    name = models.CharField(max_length=300, blank = True, unique=True)
-    time = models.DateField()
+    name = models.CharField(max_length=300, blank = False, unique=True)
+    time = models.DateField(help_text="YYYY-MM-DD")
     location = models.CharField(max_length=300, blank = True)
     type = models.CharField(max_length=300, blank = True)
     participant = models.CharField(max_length=300, blank = True)

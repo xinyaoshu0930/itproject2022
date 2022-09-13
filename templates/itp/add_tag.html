@@ -1,5 +1,6 @@
 {% extends 'itp/base.html' %}
 {% load staticfiles %}
+{% load crispy_forms_tags %} 
 
 {% block title_block %}
 	Add a Tag
@@ -15,8 +16,9 @@
 <div>
     <form id="tag_form" method="post" action="{% url 'itp:add_tag' %}">
         {% csrf_token %}
-        {{ tag_form.as_p }}
-        <input type="submit" name="submit" value="Add a Tag" />
+        {{ tag_form|crispy}}
+        <br>
+        <button type="submit" class="btn btn-primary">Add a Tag</button>
     </form>
 </div>
 
