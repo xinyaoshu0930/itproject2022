@@ -1,7 +1,12 @@
+from typing import Any, Optional
+import pandas as pd
+import csv
 from ast import keyword
 from contextlib import nullcontext
+from re import T
+from urllib import request, response
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from django.http import HttpResponse, HttpRequest
 from django.urls import reverse
 from itp.models import Publication, Tag, UserProfile, Event, Conference
 from itp.forms import ConferenceForm, EventForm, PublicationForm, TagForm, UserForm, UserProfileForm
@@ -9,9 +14,13 @@ from django.template import loader
 from django.utils.text import slugify
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.models import User
-from django.db.models import Q
+from django.db.models import Q, Count
 from django.views.decorators.csrf import csrf_exempt
+from django.views import View
+from itp.forms import DataForm
+from itp.utils import read_file_by_file_extension, show_wordcloud
 
 
 
@@ -242,3 +251,26 @@ def all_publications(request):
 	context_dict['publications']=qs
 
 	return render(request, 'itp/publications.html', context=context_dict)
+
+@staff_member_required
+def export(request):
+	response = HttpResponse(content_type='text/csv')
+
+	writer = csv.writer(response)
+
+
+	# for exporting tag_id, (distinct)tag_name, tag_count
+	#qs = Publication.objects.all().values('tag').annotate(total=Count('tag'))
+	#writer.writerow(['id', 'name','count'])
+	#for t in qs.values_list('tag', 'tag__name', 'total'):
+	#	writer.writerow(t)
+
+	# for exporting tag_name only
+	
+	qs = Publication.objects.all()
+	writer.writerow(['id', 'name','count'])
+	for t in qs.values_list('tag__name'):
+		writer.writerow(t)
+
+	response['Content-Disposition'] = 'attachment; filename=tags.csv'
+	return response

@@ -54,6 +54,10 @@
               <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><img src="{% static "img/avatar.jpg" %}" width="30" height="30" class="rounded-circle"></a>
               <div class="dropdown-menu dropdown-menu-end">
                 <a class="dropdown-item" href="{% url 'itp:my_archives' %}">My Archives</a>
+                {% if request.user.is_staff %}
+                <a class="dropdown-item" href="{% url 'itp:export' %}">Export Wordcloud Data</a>
+                <a class="dropdown-item" href="https://www.jasondavies.com/wordcloud/">Generate Wordcloud</a>
+                {% endif %}
               </div>
             </li>
            
@@ -87,6 +91,22 @@
         </div>
 
     </main><!-- /.container -->
+    
+    <footer class="text-muted py-5">
+      <hr>
+      <div class="container">
+        <p class="float-end mb-1">
+          <a href="#">Back to top</a>
+        </p>
+        <a class="float-start mb-1" href="https://www.gla.ac.uk/schools/computing/"><img src="{% static "img/gu.png" %}" width="130" alt="logo"></a>
+        <p class="mb-1">&nbsp;&nbsp; UNIVERSITY OF GLASGOW SCHOOL OF COMPUTING SCIENCE</p>
+        <p class="mb-1">&nbsp;&nbsp; COMPSCI5018P MSc Development Project for IT+ (2021/22)</p>
+
+        <p class="mb-0">&nbsp;&nbsp; Xinyao Shu 2491689S Supervised by Dr. Christos Anagnostopoulos</p>
+  
+      </div>
+
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>

@@ -6,12 +6,112 @@
 {% endblock %}
 
 {% block body_block %}
-<head>
-	<link rel="stylesheet" type="text/css" href="{% static 'polls/index.css' %}">
-</head>
+<header>
+    <style>
+.masthead {
+    background-size: cover;
+    min-height: 60vh;
+    position: relative;
+    color: white;
+    text-shadow: 2px 2px 2px rgba(0,0,0,.5);
+}
 
-<div>
-	<h2><strong>Welcome to Essence!</strong></h2> 
+.color-overlay {
+    position: absolute;
+    background-color: rgba(0,0,0,0.2);
+    height: 100%;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .masthead {
+        min-height: 30vh;
+    }
+}
+    </style>
+</header>
+
+<div 
+class="masthead"
+style="background-image: url('https://www.gla.ac.uk/media/Media_811846_smxx.jpg');"
+>
+<div class="color-overlay d-flex flex-column justify-content-center align-items-center">
+<section class="py-5 text-center container">
+	<div id="intro" class="bg-image shadow-2-strong"></div>
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Welcome to Esssence</h1>
+        <p class="lead text">Data Engineering & Distributed Computing Systems</p>
+        <p>
+          <a href="{% url 'itp:publications' %}" class="btn btn-primary my-2">Publications</a>
+          <a href="{% url 'itp:events' %}" class="btn btn-secondary my-2">Events</a>
+        </p>
+      </div></div>
+	</section>
+    </div>
+</div>
+
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+			<div class="card h-100 shadow-sm">
+
+            <div class="card-body">
+              <p class="card-text"><strong>
+				  Essence Research Lab
+			  </strong>  is affiliated with the Knowledge and Data Engineering Systems Group of the Research Section: Information, Data and Analysis (IDA), School of Computing Science. Essence brings together the fundamental research areas of Distributed Data Systems, Machine Learning, and Data Science at the network Edge.
+			</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted"><a href="{% url 'itp:about' %}">Read More</a></small>
+              </div>
+            </div>
+		</div>
+          
+        </div>
+
+        <div class="col">
+			<div class="card h-100 shadow-sm">
+			  <div class="card-body">
+				<p class="card-text"><strong>Essence in a Nutshell</strong> 
+					
+					<li>Data Science at the Edge</li>
+					<li>Distributed ML Systems</li>
+					<li>Sequential Machine Learning Paradigms</li>
+					<li>Management at the Edge</li> 
+
+			  </p>
+				<div class="d-flex justify-content-between align-items-center">
+				  <small class="text-muted"><a href="{% url 'itp:about' %}">Read More</a></small>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <div class="col">
+			<div class="card h-100 shadow-sm">
+			  <div class="card-body">
+				<p class="card-text">
+					<strong>Current Projects</strong>
+
+					<li>Model re-usability at the Edge</li>
+					<li>Resilence at the Edge</li>
+					<li>Resilence in ML Systems</li>
+					<li>Distributed ML</li> 
+					<li>Sequential Machine Learning Systems</li>
+					</p>
+				<div class="d-flex justify-content-between align-items-center">
+				  <small class="text-muted"><a href="{% url 'itp:publications' %}">Read More</a></small>
+				</div>
+			  </div>
+			</div>
+		  </div>
+
+      </div>
+    </div>
   </div>
+
   
+
 {% endblock %}

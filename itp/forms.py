@@ -1,6 +1,9 @@
 from django import forms
 from django.contrib.auth.models import User
 from itp.models import Conference, Publication, Tag, UserProfile, Event
+import os
+from django.core.exceptions import ValidationError
+from django.forms import FileField, Form
 
 
 class UserForm(forms.ModelForm):
@@ -58,3 +61,14 @@ class TagForm(forms.ModelForm):
     class Meta:
         model = Tag
         fields = ('name',)
+
+class DataForm(Form):
+    file = FileField()
+    def clean_file(self) -> str:
+        """upload file."""
+        data = self.cleaned_data["file"]
+        extension = os.path.splitext(data.name)[1]
+        valid_extensions:list[str] = [".xlsx", ".csv"]
+        if extension not in valid_extensions:
+            raise ValidationError("File type not supported")
+        return data

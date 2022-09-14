@@ -16,5 +16,7 @@ urlpatterns = [
     path('add_publication/add_conference/', views.add_conference, name='add_conference'),
     path('add_publication/add_tag/', views.add_tag, name='add_tag'),
     path('add_publication/add_author/', views.sign_up, name='add_author'),
-    path('my_archives.html', views.my_archives, name='my_archives')
+    path('my_archives/', views.my_archives, name='my_archives'),
+    path('export/', views.export, name='export'),
+    #path("wordcloud/", views.WordCloudView.as_view(), name="wordcloud"),
 ]

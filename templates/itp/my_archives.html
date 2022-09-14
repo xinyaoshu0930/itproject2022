@@ -9,38 +9,46 @@
 <link rel="stylesheet" type="text/css" href="{% static 'polls/my_archives.css'%}">
 
     <div class="header">
-	    <h2><strong>My Archives</strong></h2> 
+	    <h2><strong>My Archives</strong></h2> <br>
     </div>
 
 
     <div id="body"> 
         {% for p in publications %}
-        <li>{% for a in p.author.all %}
-                {{ a.first_name }} {{ a.last_name }},
-            {% endfor %}
-                 ({{ p.year }})  {{ p.title }}
+        <li>{% for a in p.author.all %} 
+            {% if forloop.first %} 
+            {{ a.last_name }}, {{ a.first_name|make_list|first }}.
+            {% else %}
+              {% if forloop.last %}  
+                  and {{ a.last_name }}, {{ a.first_name|make_list|first }}. 
+              {% else %}
+                  , {{ a.last_name }}, {{ a.first_name|make_list|first }}. 
+              {% endif %}
+              {% endif %}
+              {% endfor %}
+                   ({{ p.year }})  {{ p.title }}
 
-            {% if p.magazine %}
-                , {{ p.magazine }}
-             {% endif %}
-            
-            {% if p.page %}
-                , pp.{{ p.page }}
-            {% endif %}
+              {% if p.magazine %}
+                  , <em>{{ p.magazine }}</em>
+               {% endif %}
+              
+              {% if p.page %}
+                  , pp.{{ p.page }}
+              {% endif %}
 
-            {% if p.doi %}
-                , (doi: {{ p.doi }}) 
-            {% endif %}
+              {% if p.doi %}
+                  , (DOI: {{ p.doi }}) 
+              {% endif %}
 
-            {% if p.conferenceid != None %}
-                 , {{ p.conferenceid.name }}  {{ p.conferenceid.time }},  {{ p.conferenceid.location }} 
-            {% endif %}
-    </br>
-            Keywords: {% for a in p.tag.all %}
-            {{ a.name }};   
-            {% endfor %}
-    </br></li>
-        {% endfor %}
+              {% if p.conferenceid != None %}
+                   , {{ p.conferenceid.name }}  {{ p.conferenceid.time }},  {{ p.conferenceid.location }} 
+              {% endif %}
+      </br>
+              Keywords: {% for a in p.tag.all %}
+              {{ a.name }};   
+              {% endfor %}
+      </br></li><hr>
+          {% endfor %}
 
         
     

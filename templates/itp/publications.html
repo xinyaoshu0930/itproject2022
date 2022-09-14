@@ -96,31 +96,39 @@
           <br>
     <div id="body"> 
             {% for p in publications %}
-            <li>{% for a in p.author.all %}
-                    {{ a.first_name }} {{ a.last_name }},
+            <li>{% for a in p.author.all %} 
+              {% if forloop.first %} 
+              {{ a.last_name }}, {{ a.first_name|make_list|first }}.
+              {% else %}
+                {% if forloop.last %}  
+                    and {{ a.last_name }}, {{ a.first_name|make_list|first }}. 
+                {% else %}
+                    , {{ a.last_name }}, {{ a.first_name|make_list|first }}. 
+                {% endif %}
+                {% endif %}
                 {% endfor %}
                      ({{ p.year }})  {{ p.title }}
 
                 {% if p.magazine %}
-                    , {{ p.magazine }}
+                    , <em>{{ p.magazine }}</em>
                  {% endif %}
                 
                 {% if p.page %}
-                    , pp.{{ p.page }}
+                  , pp.{{ p.page }}
                 {% endif %}
 
                 {% if p.doi %}
-                    , (doi: {{ p.doi }}) 
+                  , (DOI: {{ p.doi }}) 
                 {% endif %}
 
                 {% if p.conferenceid != None %}
-                     , {{ p.conferenceid.name }}  {{ p.conferenceid.time }},  {{ p.conferenceid.location }} 
+                  , {{ p.conferenceid.name }}  {{ p.conferenceid.time }},  {{ p.conferenceid.location }} 
                 {% endif %}
         </br>
                 Keywords: {% for a in p.tag.all %}
                 {{ a.name }};   
                 {% endfor %}
-        </br></li>
+        </br></li><hr>
             {% endfor %}
 
             
