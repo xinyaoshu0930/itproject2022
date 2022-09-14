@@ -135,3 +135,5 @@ STATIC_ROOT = 'home/itp/itp2022/static'
 LOGIN_URL = '/itp2022/login/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+AUTH_PROFILE_MODULE = 'itp.UserProfile'
