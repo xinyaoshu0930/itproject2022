@@ -13,7 +13,12 @@
 
 
 		<div class="text">
+			{% if user.is_authenticated %}
+			<h1><strong>Welcome {{ user.get_short_name }}.</strong></h1><br /><br>
+			{% else %}
 			<h1><strong>Welcome.</strong></h1><br /><br>
+			{% endif %}
+			
 			<div class="pic">	
 				<img src="{% static "img/wordcloud.svg" %}" height="330vh" alt="wordcloud" /> 
 			</div>
