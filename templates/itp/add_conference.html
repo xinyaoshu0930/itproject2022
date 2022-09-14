@@ -16,7 +16,7 @@
 <div>
     <form id="conference_form" method="post" action="{% url 'itp:add_conference' %}">
         {% csrf_token %}
-        {{ conference_form|cripsy }}
+        {{ conference_form|crispy }}
         <br>
         <button type="submit" class="btn btn-primary">Add a Conference</button>
     </form>
